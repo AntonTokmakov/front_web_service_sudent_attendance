@@ -1,0 +1,16 @@
+attendance:
+  services:
+    url: http://localhost:8081
+    username: student_attendance_user
+    password: password
+
+
+spring:
+  application:
+    name: front_web-service_student_attendance
+  thymeleaf:
+    mode: LEGACYHTML5
+
+server:
+  port: 8082
+
