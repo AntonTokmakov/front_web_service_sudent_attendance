@@ -1,5 +1,6 @@
 package com.example.front_webservice_student_attendance.controller;
 
+import com.example.front_webservice_student_attendance.dto.SetPassActualLessonGroupStudy;
 import com.example.front_webservice_student_attendance.entity.ActualLesson;
 import com.example.front_webservice_student_attendance.entity.Lesson;
 import lombok.AllArgsConstructor;
@@ -18,21 +19,21 @@ public class LessonController {
 
         private final LessonRestClient lessonRestClient;
 
-        @GetMapping("/edit")
-        public String getActualLessonsByGroupAndWeek(@RequestParam("day") int day,
-                                                                 Model model) {
+    @GetMapping("/weekday/{day}")
+    public String getActualLessonsByGroupAndWeek(@PathVariable("day") int day,
+                                                 Model model) {
 
-            List<ActualLesson> actualLessons = lessonRestClient.getActualLessonsByGroupAndWeek(day);
-            model.addAttribute("actualLessons", actualLessons);
-            List<Lesson> lessons = actualLessons.stream().map(ActualLesson::lesson).toList();
-            model.addAttribute("lessons", lessons);
+        List<ActualLesson> actualLessons = lessonRestClient.getActualLessonsByGroupAndWeek(day);
+        model.addAttribute("actualLessons", actualLessons);
+        return "lessons.weekday.day";
+    }
+    @GetMapping("/weekday/attendance/{lessonId}")
+    public String getActualLessonsById(@PathVariable("lessonId") int lessonId,
+                                       Model model) {
 
-            return "lessons.weekday.day";
-        }
-
-        @GetMapping("/ww")
-        public String getActualLessonsByGroupAndWeek() {
-            return "lessons.weekday.day";
-        }
+        SetPassActualLessonGroupStudy passList = lessonRestClient.getActualLessonsById(lessonId);
+        model.addAttribute("passList", passList);
+        return "lessons.monitor.weekday.attendance";
+    }
 
 }

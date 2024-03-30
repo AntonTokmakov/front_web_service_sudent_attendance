@@ -1,5 +1,6 @@
 package com.example.front_webservice_student_attendance.controller;
 
+import com.example.front_webservice_student_attendance.dto.SetPassActualLessonGroupStudy;
 import com.example.front_webservice_student_attendance.entity.ActualLesson;
 import org.springframework.http.ResponseEntity;
 
@@ -9,4 +10,5 @@ public interface LessonRestClient {
 
     List<ActualLesson> getActualLessonsByGroupAndWeek(int day);
 
+    SetPassActualLessonGroupStudy getActualLessonsById(int lessonId);
 }
