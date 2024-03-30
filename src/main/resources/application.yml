@@ -11,6 +11,11 @@ spring:
   thymeleaf:
     mode: LEGACYHTML5
 
+  datasource:
+    url: jdbc:postgresql://localhost:5432/attendance_student
+    username: entrypoint
+    password: password
+
 server:
   port: 8082
 
