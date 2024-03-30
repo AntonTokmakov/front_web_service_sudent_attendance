@@ -9,7 +9,7 @@
 <div class="alert alert-primary mt-3" th:if="${passList.actualLesson != null}">
     <strong>Дисциплина: </strong> <span th:text="${passList.actualLesson.lesson.discipline.shortName}"></span><br/>
     <strong>Пара: </strong> <span th:text="${passList.actualLesson.lesson.numberLesson.name}"></span><br/>
-    <strong>День недели: </strong> <span th:text="${passList.actualLesson.lesson.weekday.name}|"></span><br/>
+    <strong>День недели: </strong> <span th:text="${passList.actualLesson.lesson.weekday.name}"></span><br/>
     <strong>Тип дисциплины: </strong> <span th:text="${passList.actualLesson.lesson.typeLesson.name}"></span><br/>
     <strong>Преподаватель: </strong> <span th:text="${passList.actualLesson.lesson.teacherList[0].secondName}"></span>
     <span th:text="${passList.actualLesson.lesson.teacherList[0].firstName}"></span>
